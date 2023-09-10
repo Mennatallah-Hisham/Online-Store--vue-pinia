@@ -1,29 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import useCounterStore from './store/store';
-const counter=useCounterStore();
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <h2>access state</h2>
-    <h1>{{counter.count}}</h1>
-    <h2>actions</h2>
-    <button @click="counter.decrement">decrement</button>
-    <button @click="counter.increment">increment</button>
-  <h2>getters</h2>
-    <p>{{counter.oddOrEven}}</p>
-    <p>{{counter.countSquared}}</p>
-    <hr>
-    <h2> two way binding</h2>
-    <input
-    
-    v-model="counter.count"
-    type="number"/>
-    <RouterView/>
-    
-  </header>
+  <RouterView/>
+ 
 
 </template>
 

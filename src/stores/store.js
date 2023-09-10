@@ -1,34 +1,29 @@
 
 import {defineStore} from 'pinia';
 
-const useCounterStore= defineStore('counter',{
+
+const productStore = defineStore("products",{
     state:()=>{
         return{
-            count:0,
+            products:[]
         }
-    },
-    getters:{
-        countSquared:(state)=>{
-            return state.count *state.count
-            
-
-        },
-        oddOrEven:(state)=>{
-            if(state.count%2===0) return 'even'
-            return 'odd'
-
-        }
-
-
     },
     actions:{
-        increment(){
-            this.count++;
-        },
-        decrement(){
-            this.count--;
+      async fetchProducts(){
+            try{
+       await fetch('https://dummyjson.com/products').then(res=>res.json()).then(json=>this.products=json.products)
+
+            }
+            catch(error){
+                console.log(error)
+
+            }
         }
+
+    },
+    getters:{
 
     }
 })
-export default useCounterStore;
+
+export default productStore;
