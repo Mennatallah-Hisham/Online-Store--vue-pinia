@@ -24,6 +24,9 @@ const productStore = defineStore("products",{
             console.log(product)
             this.cart.push(product)
 
+        },
+        removeFromCart(id){
+            this.cart.filter((product)=>product.id===id);
         }
 
 
