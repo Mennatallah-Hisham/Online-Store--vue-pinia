@@ -1,14 +1,11 @@
 <script setup>
-import { onMounted } from 'vue';
+
 import useProductStore from "../stores/store";
 import Card from "../components/Card.vue"
 
 
 const productStore =useProductStore();
-onMounted( ()=>{
-    console.log("on mounted helloe")
-   productStore.fetchProducts();
-})
+
 
 </script>
 

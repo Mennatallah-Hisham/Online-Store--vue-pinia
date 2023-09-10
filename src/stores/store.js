@@ -20,8 +20,14 @@ const productStore = defineStore("products",{
             }
         }
 
+
     },
     getters:{
+        getProduct:(state)=>{
+          
+            return (id) => state.products.find((product)=>product.id===id)
+        },
+       
 
     }
 })

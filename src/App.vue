@@ -1,5 +1,13 @@
 <script setup>
 import { RouterView } from 'vue-router';
+import { onMounted } from 'vue';
+import useProductStore from "./stores/store";
+const productStore =useProductStore();
+onMounted( ()=>{
+
+   productStore.fetchProducts();
+})
+
 
 </script>
 
