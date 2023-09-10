@@ -4,7 +4,7 @@ const router = useRoute();
 import useProductStore from "../stores/store";
 import {computed ,ref } from 'vue';
 const productStore=useProductStore();
-const inCart=ref(false)
+
 const id = parseInt( router.params.id)
 //computed & ref same problem
 // let product=productStore.getProduct(id);
@@ -15,17 +15,23 @@ const product =computed(()=>{
 }
 
 ) 
+console.log(
+    product.value.id
+)
+const inCart =ref(productStore.isInCart(product.value.id));
+console.log(inCart.value)
+
 const toggleInCart=()=>{
     inCart.value=!inCart.value;
 }
     
 const addToCart= ()=>{
-    productStore.addToCart(product);
+    productStore.addToCart(product.value);
     toggleInCart();
 
 }
 const removeFromCart =()=>{
-    productStore.removeFromCart(id);
+    productStore.removeFromCart(product.value.id);
     toggleInCart();
 
 
@@ -38,7 +44,7 @@ const removeFromCart =()=>{
         <h1> {{product.title}}</h1>
         <p> {{product.description}}</p>
         <p> {{product.price}}</p>
-        <img :src="product.thumbnail"/>
+        <img :src="product.img"/>
         <hr>
         <button v-if="inCart" @click="removeFromCart">removeFromCart</button>
         <button v-else @click="addToCart"> add to cart</button>

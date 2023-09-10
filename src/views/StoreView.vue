@@ -13,7 +13,16 @@ const productStore =useProductStore();
     <h1>
         store view
     </h1>
+    <section >
+        <h2> new arrival</h2>
+
+    <div class="flex">
+        <Card :products="productStore.getNewArrival"/>
+    </div>
+      
+    </section>
     <section class="flex">
+        
 
     
         <Card :products="productStore.products"/>
@@ -26,6 +35,9 @@ const productStore =useProductStore();
     justify-content: center;
     gap:2rem;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin-inline: auto;
+    
 
 }
 
