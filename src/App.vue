@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView } from 'vue-router';
+import { RouterView ,RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
 import useProductStore from "./stores/store";
 const productStore =useProductStore();
@@ -12,6 +12,10 @@ onMounted( ()=>{
 </script>
 
 <template>
+  <nav>
+    <RouterLink to="/">store</RouterLink>
+    <RouterLink to="/cart">cart</RouterLink>
+  </nav>
   <RouterView/>
  
 

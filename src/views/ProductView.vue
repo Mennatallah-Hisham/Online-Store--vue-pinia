@@ -16,7 +16,10 @@ const product =computed(()=>{
 
 ) 
     
+const addToCart= ()=>{
+    productStore.addToCart(product);
 
+}
 
 
 </script>
@@ -26,13 +29,10 @@ const product =computed(()=>{
         <p> {{product.description}}</p>
         <p> {{product.price}}</p>
         <img :src="product.thumbnail"/>
-        <button> add to cart</button>
+        <hr>
+        <button @click="addToCart"> add to cart</button>
         
 
     </section>
-    <h1>
-
-  
-    </h1>
 
 </template>

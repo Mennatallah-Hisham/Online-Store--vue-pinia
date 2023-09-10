@@ -5,7 +5,8 @@ import {defineStore} from 'pinia';
 const productStore = defineStore("products",{
     state:()=>{
         return{
-            products:[]
+            products:[],
+            cart:[]
         }
     },
     actions:{
@@ -18,7 +19,13 @@ const productStore = defineStore("products",{
                 console.log(error)
 
             }
+        },
+        addToCart(product){
+            console.log(product)
+            this.cart.push(product)
+
         }
+
 
 
     },
