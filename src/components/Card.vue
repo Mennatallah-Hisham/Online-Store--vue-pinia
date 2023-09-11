@@ -10,14 +10,18 @@ import { RouterLink } from 'vue-router';
    <div class="img-cont">
     <img :src="product.img"/>
    </div>
-        
-        <RouterLink :to="`/product/${product.id}`">
+   <div class="card-content">
+    <RouterLink :to="`/product/${product.id}`">
 
        
-        <h2>{{product.title}}</h2>
+        <p class="title">{{product.title}}</p>
     </RouterLink>
         
-        <h2>{{product.price}}</h2>
+        <p class="price">{{product.price}}</p>
+
+   </div>
+        
+       
       
         
         
@@ -26,20 +30,50 @@ import { RouterLink } from 'vue-router';
 </template>
 <style scoped>
 article{
-    width:250px;
-    background: #000;
+    width:200px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+
+
+
   
 
 }
 .img-cont{
-
-    background: #6208bb;
-
+    overflow: hidden;
 }
 img{
 
     max-width: 100%;
 
-    max-height: 20rem;
+    max-height: 25rem;
+}
+.card-content{
+width:80%;
+    padding:0 0.1rem;
+
+    display: flex;
+    justify-content:space-between;
+}
+.price{
+    font-weight: 700;
+}
+.title{
+    text-transform: capitalize;
+}
+
+@media (min-width:980px){
+    article{
+        width:250px;
+
+    }
+    img{
+
+        max-width: 100%;
+    
+        max-height: 28rem;
+    }
 }
 </style>
